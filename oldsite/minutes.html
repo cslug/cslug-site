@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Minutes</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="js/jquery.js"></script>
+
+<script type="text/javascript">
+     $(function () {
+        $(".subRight h3").click(function() {
+            var $this = $(this);
+            if($this.hasClass('open')) { 
+                $this.removeClass('open').next('span').slideUp("fast"); return false; 
+            }
+            $("span.closed:visible").slideUp("fast").prev('h3').removeClass('open');
+            $this.addClass('open').next('span').slideDown("fast");
+        });   
+    });
+</script>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="index.html">CSLUG</a></h1>
+				<p> chico state linux users group </p>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+                    <li><a href="members.html">Members</a></li>
+                    <li class="current_page_item"><a href="minutes.html">Minutes</a></li>
+					<li><a href="photos.html">Photos</a></li>					
+					<li><a href="links.html">Links</a></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+				<div id="content">
+					<div class="post">
+						<h2 class="title"><a href="/cslug/index.html">Welcome to CSLUG</a></h2>
+						<div class="entry">
+							<table><tr><td width="200px">
+								<p>&nbsp</p>
+							</td><td align="center" width="300px">		
+								<p><strong>Click a date to see its minutes</strong></p>
+                                <div class="subRight">
+                                    <h3><span class="carrot"></span>September 1, 2010</h3>
+                                        <span class="closed">
+                                                <p>will be up soon.</p>
+                                        </span>
+                                    <h3><span class="carrot"></span>September 8, 2010</h3>
+                                        <span class="closed">
+                                                <p>This meeting has not happened yet.</p>
+                                        </span>
+                                     <h3><span class="carrot"></span>September 15, 2010</h3>
+                                        <span class="closed">
+                                                <p>This meeting has not happened yet.</p>
+                                        </span>
+                                </div>      
+							</td></tr></table>	
+							<p>&nbsp</p>
+							<p>&nbsp</p>
+							<p>&nbsp</p>
+							<p>&nbsp</p>
+							<p>&nbsp</p>
+							<p>&nbsp</p>
+						</div>
+						<div class="byline">
+						</div>
+					</div>
+					
+					<div style="clear: both;">&nbsp;</div>
+				</div>
+				<!-- end #content -->
+				<div id="sidebar">
+					<ul>
+						<li>
+							<h2>School</h2>
+							<ul>
+								<li><a href="http://www.csuchico.edu/">Chico State</a></li>								
+							</ul>
+						</li>
+						<li>
+							<h2>Programming</h2>
+							<ul>
+								<li><a href="http://www.xubuntu.org/">xubuntu</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<!-- end #sidebar -->
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p>Copyright (c) 2008 Chico State Linux Users Group | All rights reserved | web master <a href="http://www.ecst.csuchico.edu/~mattben/"> mattben</a>.</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>

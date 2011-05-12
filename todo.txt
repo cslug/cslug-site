@@ -1,0 +1,7 @@
+-change the "Welcome to CSLUG" header depending on the page
+-fix line spacing on 'about' page
+-separate pages into different php files
+-clean up php (it's getting ridiculous)
+-automate news announcements of upcoming meetings
+-automate minutes recognition (halfway done)
+-expand the main column on the photos page (remove sidebar)

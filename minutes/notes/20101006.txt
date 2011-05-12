@@ -1,0 +1,84 @@
+                                                                     
+                                                                     
+                                                                     
+                                             
+Terminal Review:
+====================
+
+Useful commands:
+	cd -
+	man
+	ln -s
+	!!
+	sudo
+	ps -A | grep
+	chmod
+
+GUIs:
+	- Types: Gnome / KDE / XFCE / NetbookRemix
+	- Control Panels
+		+ Preferences vs Administration
+		+ UserAccessControl
+	- Gnome Panels
+		+ System Tray (doesn't really exist)
+		+ Workspaces (separating & moving to/from)
+		+ Shortcuts
+		+ Applications Menu (Start Menu)
+	- Window Managers: Compiz / Beryl / (Metacity)
+	- Themes
+	- Config Files
+	- gconf-editor
+		+ metacity buttons (default)
+		+ other apps
+	- Compiz
+		+ Cube
+		+ Keybinds
+		+ Wallpapers (nautilus bug)
+	- Nautilus
+		+ Hidden Files
+	- Audio
+		+ Disabling the startup sound (sound prefs / startup apps)
+		+ Configuration (mic/headsets)
+	- Keyboard Shortcuts
+		- ALTF2 (Run)
+	- System Monitor & htop
+	- Synaptic Package Manager & Software Center
+		+ Packages
+		+ apt-get
+		+ Sources
+		+ Compiling from scratch
+	- Drivers & Printers
+		+ Proprietary vs Open
+	- Different terminals (Alt F1 thru F7)
+
+Apps:
+	- Firefox
+		+ back button
+		+ icedtea for javascript
+	- Gparted [partition magic]
+	- Gimp [photoshop]
+	- OpenOffice [msoffice]
+	- Pidgin & Empathy [yahoo, myspaceIM, icq, msn, gtalk]
+		+ Jabber transport/XMPP
+	- Filezilla & Gftp [winscp, cuteftp]
+	- Transmission [vuze/azureus, bittorrent]
+	- Eclipse & Codeblocks
+	- Firestarter
+	- Kate?
+	- Dia
+	- Antimalware?
+	- WINE
+
+Grub
+vIM
+	- Color Schemes
+	
+Philosophy:
+	- Open Source
+	- UNIX-inherited multiuser design (vs windows)
+	- Immerse yourself 100% to really learn it
+	
+Support:
+	- ubuntuforums.org
+	- reddit.com/r/linux
+
