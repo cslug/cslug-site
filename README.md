@@ -12,6 +12,10 @@ both parties) to contribute or fix code.
 
 [1]:http://help.github.com/fork-a-repo/
 
+what do i need to run this on my local machine?
+-----------------------------------------------
+Just PHP, and a webserver. It hasn't been tested on anything under PHP5.
+
 who's the boss?
 ---------------
 Angela.
