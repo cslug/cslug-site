@@ -10,6 +10,8 @@ Yes! Please do! If you're new to git, don't be intimidated. GitHub has [very
 helpful instructions][1] on forking repositories, and it's the easiest way (for
 both parties) to contribute or fix code.
 
+[1]:http://help.github.com/fork-a-repo/
+
 who's the boss?
 ---------------
 Angela.
