@@ -1,0 +1,77 @@
+a#logo:link, a#logo:visited {
+	background-color: #fff;
+	color:            #000;
+	font-family:      trebuchet, arial;
+	font-size:        80px;
+	font-weight:      bold;
+	letter-spacing:   -11px;
+	padding:          0 10px 10px 0;
+	position:         relative;
+	top:              -1px;
+	text-decoration:  none;
+	text-shadow:      0 0 9px #888;
+}
+
+a#logo:hover {
+	background-color: #000;
+	color:            #fff;
+}
+
+div#left-margin {
+	background-color: #000;
+	float:            left;
+	height:           100%;
+	width:            163px;
+}
+
+ul#navigation {
+	color:           #fff;
+	font-family:     "trebuchet ms", sans-serif;
+	font-size:       14px;
+	list-style-type: none;
+	padding:         6px 9px 0 0;
+	text-align:      right;
+}
+
+a.navigation:link, a.navigation:visited {
+	color:           #fff;
+	text-decoration: none;
+}
+
+a.navigation:hover {
+	font-style: italic;
+}
+
+div#page-content {
+	float:        left;
+	margin:       20px 0 0 40px;
+	width:        800px;
+}
+
+div.entry-title, div.welcome-title {
+	border-bottom:  1px dashed #999;
+	color:          #444;
+	font-family:    arial, sans-serif;
+	font-size:      18px;
+	font-weight:    bold;
+	letter-spacing: -1px;
+	text-decoration: none;
+}
+
+div.welcome-title {
+	color: #000;
+}
+
+div.entry-content {
+	font-family: "trebuchet ms", sans-serif;
+	font-size:   13px;
+}
+
+a:link, a:visited {
+	color:           #00f;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
