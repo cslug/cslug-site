@@ -1,5 +1,7 @@
 <?php
 
+include "markdown.php";
+
 function __autoload($class) {
 	include "classes/$class.php";
 }
@@ -19,6 +21,11 @@ switch($page) {
 	
 	case Page::Index:
 		require_once "html/index.html";
+		// todo: print news items dynamically here
+		foreach(glob("news/*") as $file) {
+			$news_item = new NewsItem($file, file_get_contents($file), filemtime($file));
+			echo $news_item->getContent();
+		}
 		break;
 	case Page::Members:
 		require_once "html/members.html";
