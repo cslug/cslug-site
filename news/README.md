@@ -3,9 +3,9 @@ news announcements
 This folder holds news announcements that display on the frontpage. The parser
 reads files in the following style:
 
-* The filename gets all hyphens replaced with spaces, then gets the first letter
-  capitalized, and becomes the news entry title
+* *Filename (news entry title):* The first letter of the file is capitalized,
+  then all hyphens get replaced with spaces.
 
-* The content of the file becomes the news entry content, with no modifications
+* *File content (news entry content):* No changes.
 
-* The *last modified* date of the file is the news entry's date
+* *File timestamp (news entry date):* No changes.
