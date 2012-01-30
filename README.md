@@ -12,9 +12,14 @@ both parties) to contribute or fix code.
 
 [1]:http://help.github.com/fork-a-repo/
 
+how does this repo relate to the live site?
+-------------------------------------------
+We're actually planning on deploying the most recent commit here to the live
+site on a nightly basis, but it's not set up yet.
+
 what do i need to run this on my local machine?
 -----------------------------------------------
-Just PHP, and a webserver. It hasn't been tested on anything under PHP5.
+PHP5+ and a webserver. You can try on PHP4 but nothing's been tested.
 
 who's the boss?
 ---------------
