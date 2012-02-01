@@ -12,28 +12,28 @@ class NewsItem {
 	private $content;
 	private $timestamp;
 	
-	function __construct($title, $content, $timestamp) {
+	public function __construct($title, $content, $timestamp) {
 		$this->title     = $title;
 		$this->content   = $content;
 		$this->timestamp = $timestamp;
-
+		
 		$this->title = ucfirst($this->title);
 		$this->title = str_replace("-", " ", $this->title);
-
+		
 		$this->content = Markdown($this->content);
 		
 		self::$all[] = $this;
 	}
 	
-	function getTitle() {
+	public function getTitle() {
 		return $this->title;
 	}
 	
-	function getContent() {
+	public function getContent() {
 		return $this->content;
 	}
 	
-	function getTimestamp() {
+	public function getTimestamp() {
 		return $this->timestamp;
 	}
 	
