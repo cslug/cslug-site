@@ -16,6 +16,11 @@ class NewsItem {
 		$this->title     = $title;
 		$this->content   = $content;
 		$this->timestamp = $timestamp;
+
+		$this->title = ucfirst($this->title);
+		$this->title = str_replace("-", " ", $this->title);
+
+		$this->content = Markdown($this->content);
 		
 		self::$all[] = $this;
 	}
@@ -25,7 +30,7 @@ class NewsItem {
 	}
 	
 	function getContent() {
-		return Markdown($this->content);
+		return $this->content;
 	}
 	
 	function getTimestamp() {

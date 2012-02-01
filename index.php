@@ -23,8 +23,16 @@ switch($page) {
 		require_once "html/index.html";
 		// todo: print news items dynamically here
 		foreach(glob("news/*") as $file) {
-			$news_item = new NewsItem($file, file_get_contents($file), filemtime($file));
-			echo $news_item->getContent();
+			
+			if(strstr($file, "README.md"))
+				continue;
+			
+			$news_item = new NewsItem(str_replace("news/", "", $file), file_get_contents($file), filemtime($file));
+			$out = file_get_contents("html/news-item.html");
+			$out = str_replace("{title}",   $news_item->getTitle(),   $out);
+			$out = str_replace("{content}", $news_item->getContent(), $out);
+			echo $out;
+			
 		}
 		break;
 	case Page::Members:
