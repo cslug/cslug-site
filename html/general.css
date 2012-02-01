@@ -19,9 +19,11 @@ a#logo:hover {
 
 div#left-margin {
 	background-color: #000;
+	display:          inline;
 	float:            left;
 	height:           100%;
-	width:            153px;
+	margin-right:     20px;
+	width:            163px;
 }
 
 ul#navigation {
@@ -44,7 +46,7 @@ a.navigation:hover {
 }
 
 div#page-content {
-	float:        left;
+	display:      inline;
 	margin:       20px 0 0 40px;
 	width:        800px;
 }
