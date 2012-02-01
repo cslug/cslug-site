@@ -10,3 +10,5 @@ reads files in the following style:
   suffers no additional changes.
 
 * *File timestamp (news entry date):* No changes.
+
+[1]: http://daringfireball.net/projects/markdown/
