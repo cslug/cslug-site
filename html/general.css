@@ -21,7 +21,7 @@ div#left-margin {
 	background-color: #000;
 	float:            left;
 	height:           100%;
-	width:            163px;
+	width:            153px;
 }
 
 ul#navigation {
@@ -29,12 +29,13 @@ ul#navigation {
 	font-family:     "trebuchet ms", sans-serif;
 	font-size:       14px;
 	list-style-type: none;
-	padding:         6px 9px 0 0;
+	padding:         6px 9px 3px 3px;
 	text-align:      right;
 }
 
 a.navigation:link, a.navigation:visited {
-	color:           #fff;
+    font-size:       14px;
+    color:           #fff;
 	text-decoration: none;
 }
 
@@ -74,4 +75,10 @@ a:link, a:visited {
 
 a:hover {
 	text-decoration: underline;
+}
+
+div#footer{
+    font-size:      10px;
+    font-family:    arial, sans-serif;
+    text-align:     center;      
 }
