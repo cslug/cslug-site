@@ -21,14 +21,7 @@ div#left-margin {
 	background-color: #000;
 	float:            left;
 	height:           100%;
-	margin-right:     20px;
 	width:            163px;
-}
-
-ul {
-	list-style-type: square;
-	/* Stupid fix for the left-margin floating */
-	padding-left:    200px;
 }
 
 ul#navigation {
@@ -51,7 +44,7 @@ a.navigation:hover {
 }
 
 div#page-content {
-	margin:       20px 0 0 40px;
+	margin:       20px 0 0 180px;
 	width:        800px;
 }
 
@@ -67,6 +60,14 @@ div.entry-title, div.section-title {
 
 div.section-title {
 	color: #000;
+}
+
+/*
+ * To get div#left-margin to stretch its height to 100% of the viewport, all
+ * parent elements including, in HTML5, html, must have a 100% height as well.
+ */
+html, body {
+	height: 100%;
 }
 
 body {
