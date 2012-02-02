@@ -37,6 +37,16 @@ switch($page) {
 		break;
 	case Page::Members:
 		require_once "html/members.html";
+                
+                foreach(glob("members/*") as $file) {
+
+                  if(strstr($file, "README.md"))
+                    continue;
+
+                  $file_ptr = fopen($file);
+                  $member = new Member(str_replace("members/", "", $file), fgets($file_ptr), fgets($file_ptr));
+                  fclose($file_ptr);
+                }
 		break;
 	case Page::Minutes:
 		require_once "html/minutes.html";
