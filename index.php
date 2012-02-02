@@ -21,17 +21,17 @@ switch($page) {
 	
 	case Page::Index:
 		require_once "html/index.html";
-		// todo: print news items dynamically here
 		foreach(glob("news/*") as $file) {
 			
 			if(strstr($file, "README.md"))
 				continue;
 			
-			$news_item = new NewsItem(str_replace("news/", "", $file), file_get_contents($file), filemtime($file));
-			$out = file_get_contents("html/news-item.html");
-			$out = str_replace("{title}",   $news_item->getTitle(),   $out);
-			$out = str_replace("{content}", $news_item->getContent(), $out);
-			echo $out;
+			$news_item = new NewsItem(str_replace("news/", "", $file),
+			                          file_get_contents($file),
+			                          filemtime($file));
+			$template = new Template(Page::NewsItem);
+			echo $template->parse(array("title"   => $news_item->getTitle(),
+			                            "content" => $news_item->getContent()));
 			
 		}
 		break;
