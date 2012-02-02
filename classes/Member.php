@@ -6,22 +6,29 @@ class Member {
   private $position;
   private $link;
 
-  function __construct($name, $position, $link) {
+  public function __construct($name, $position, $link) {
 
-    $this->name = ucfirst($name);
+    $this->name = explode("-", $name);
+
+    foreach ($this->name as $key => $lc_name) {
+      $this->name[$key] = ucfirst($lc_name);
+    }
+
+    $this->name = implode(" ", $this->name);
+
     $this->position = ucfirst($position);
     $this->link = $link;
   }
 
-  function getName() {
+  public function getName() {
     return $this->name;
   }
 
-  function getPosition() {
+  public function getPosition() {
     return $this->position;
   }
 
-  function getLink() {
+  public function getLink() {
     return $this->link;
   }
 

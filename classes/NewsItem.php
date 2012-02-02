@@ -12,7 +12,7 @@ class NewsItem {
 	private $content;
 	private $timestamp;
 	
-	function __construct($title, $content, $timestamp) {
+	public function __construct($title, $content, $timestamp) {
 		$this->title     = $title;
 		$this->content   = $content;
 		$this->timestamp = $timestamp;
@@ -25,15 +25,15 @@ class NewsItem {
 		self::$all[] = $this;
 	}
 	
-	function getTitle() {
+	public function getTitle() {
 		return $this->title;
 	}
 	
-	function getContent() {
+	public function getContent() {
 		return $this->content;
 	}
 	
-	function getTimestamp() {
+	public function getTimestamp() {
 		return $this->timestamp;
 	}
 	
