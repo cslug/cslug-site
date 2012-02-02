@@ -19,11 +19,16 @@ a#logo:hover {
 
 div#left-margin {
 	background-color: #000;
-	display:          inline;
 	float:            left;
 	height:           100%;
 	margin-right:     20px;
 	width:            163px;
+}
+
+ul {
+	list-style-type: square;
+	/* Stupid fix for the left-margin floating */
+	padding-left:    200px;
 }
 
 ul#navigation {
@@ -36,8 +41,8 @@ ul#navigation {
 }
 
 a.navigation:link, a.navigation:visited {
-    font-size:       14px;
-    color:           #fff;
+	color:           #fff;
+	font-size:       14px;
 	text-decoration: none;
 }
 
@@ -46,7 +51,6 @@ a.navigation:hover {
 }
 
 div#page-content {
-	display:      inline;
 	margin:       20px 0 0 40px;
 	width:        800px;
 }
@@ -65,13 +69,15 @@ div.section-title {
 	color: #000;
 }
 
-p, div.entry-content {
+body {
 	font-family: "trebuchet ms", sans-serif;
 	font-size:   13px;
 }
 
 a:link, a:visited {
 	color:           #00f;
+	font-family:     "trebuchet ms", sans-serif;
+	font-size:       13px;
 	text-decoration: none;
 }
 
