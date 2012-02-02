@@ -51,7 +51,7 @@ div#page-content {
 	width:        800px;
 }
 
-div.entry-title, div.welcome-title {
+div.entry-title, div.section-title {
 	border-bottom:  1px dashed #999;
 	color:          #444;
 	font-family:    arial, sans-serif;
@@ -61,11 +61,11 @@ div.entry-title, div.welcome-title {
 	text-decoration: none;
 }
 
-div.welcome-title {
+div.section-title {
 	color: #000;
 }
 
-div.entry-content {
+p, div.entry-content {
 	font-family: "trebuchet ms", sans-serif;
 	font-size:   13px;
 }
