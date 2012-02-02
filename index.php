@@ -28,7 +28,8 @@ switch($page) {
 			if(strstr($file, "README.md"))
 				continue;
 			
-			$news_item = new NewsItem(str_replace("news/", "", $file),
+			$news_title = str_replace("news/", "", $file);
+			$news_item = new NewsItem($news_title,
 			                          file_get_contents($file),
 			                          filemtime($file));
 			$template = new Template(Page::NewsItem);
@@ -45,18 +46,32 @@ switch($page) {
 				continue;
 			
 			$file_ptr = fopen($file);
-			$member = new Member(str_replace("members/", "", $file), fgets($file_ptr), fgets($file_ptr));
+			$member_name = str_replace("members/", "", $file);
+			$member = new Member($member_name, fgets($file_ptr), fgets($file_ptr));
 			fclose($file_ptr);
 		}
 		break;
 	case Page::Minutes:
 		require_once "html/minutes.html";
+		foreach(glob("minutes/*") as $file) {
+			
+			if(strstr($file, "README.md"))
+				continue;
+			
+			$minutes_item = new MinutesItem(str_replace("minutes/", "", $file),
+			                                file_get_contents($file),
+			                                filemtime($file));
+			$template = new Template(Page::MinutesItem);
+			echo $template->parse(array("title"   => $minutes_item->getTitle(),
+			                            "content" => $minutes_item->getContent()));
+		}
 		break;
 	case Page::Links:
 		require_once "html/links.html";
 		break;
-    case Page::Admin:
-        require_once "admin.php";
+	case Page::Admin:
+		require_once "admin.php";
+		break;
 	
 }
 
