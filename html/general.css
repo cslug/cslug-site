@@ -80,7 +80,8 @@ a:hover {
 }
 
 div#footer{
-    font-size:      10px;
-    font-family:    arial, sans-serif;
-    text-align:     center;      
+		font-size:      10px;
+		font-family:    arial, sans-serif;
+		margin-top:     10px;
+		text-align:     center;
 }
