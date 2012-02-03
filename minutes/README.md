@@ -1,4 +1,4 @@
-minutes
+Minutes
 -------
 This folder holds minutes (official notes) recorded from CSLUG meetings. Each
 file represents one meeting's minutes in the following style:

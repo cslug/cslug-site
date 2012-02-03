@@ -1,4 +1,4 @@
-news announcements
+News announcements
 ------------------
 This folder holds news announcements that display on the frontpage. The parser
 reads files in the following style:
