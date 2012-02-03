@@ -51,7 +51,10 @@ if(isset($_POST['whatToDo'])){
 if(isset($_POST['addnews'])){
     //write to news file
     $news = $_POST['newnews'];
-    $title = $POST['title'];
+    $title = $_POST['title'];
+    if(empty($title)){
+        $title = date("m_d_y");
+    }    
     $title;
     $fh = fopen("news/$title", "w") or die("Can't create file");
     fwrite($fh, $news);
