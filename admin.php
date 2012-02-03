@@ -90,7 +90,10 @@ if(isset($_POST['addmem'])){
     $name = $_POST['name'];
     $nic = $_POST['nic'];
     if(empty($nic)){
-        $nic = str_replace("", "_", $name);
+        $nic = str_replace(" ", "_", $name);
+    }
+    else{
+        $nic = str_replace(" ", "_", $nic);
     }
     $web = $_POST['web'];
     $start = $_POST['start'];
@@ -120,12 +123,22 @@ if(isset($_POST['editmem'])){
 }
 //______________________________________________________________
 // member being edited
+
+if(isset($_POST['del'])){
+    $gone = $_POST['gone'];
+    unlink($gone);//**************************
+    echo "Gone has been removed from the members list<br/>";
+    $pagePart = 1;
+}
 if(isset($_POST['mem'])){
     //write to news file
     $name = $_POST['name'];
     $nic = $_POST['nic'];
     if(empty($nic)){
-        $nic = str_replace("", "_", $name);
+        $nic = str_replace(" ", "_", $name);
+    }
+    else{
+        $nic = str_replace(" ", "_", $nic);
     }
     $web = $_POST['web'];
     $start = $_POST['start'];
@@ -210,7 +223,7 @@ elseif($pagePart == 4) //Add Members
     echo "<h3>Add New Member</h3>";
     echo "<table>";
     echo "<tr><td>Full Name</td><td><input type='text' name='name'></td><td>(First Last)</td</tr>";
-    echo "<tr><td>Nic Name:</td><td><input type='text' name='nic'></td><td>(If no nic name, put First name)</td></tr>";
+    echo "<tr><td>Nic Name:</td><td><input type='text' name='nic'></td><td>(If no nic name, put Full name)</td></tr>";
     echo "<tr><td>Website:</td><td><input type='text' name='web'></td></tr>";
     echo"<tr><td>Email:</td><td><input type='text' name='email'></td></tr>";
     echo "<tr><td>Member Since:</td><td><input type='text' name='start'></td><td>(Fall XXXX || Spring XXXX)</td></tr>";
@@ -237,7 +250,6 @@ elseif($pagePart == 4) //Add Members
 }
 elseif($pagePart == 5) //Edit Member Selection
 {
-    echo "edit member coming soon! <br/>";
     //pull all file names from members/
     //path to directory to scan
     $directory = "members/";
@@ -272,9 +284,11 @@ elseif($pagePart == 6) //Edit Member
     
     echo "<h3>Add Edit Member</h3>";
     echo "You are editing club member: $edit";
+    echo "<input type='submit' name='del' value='delete'>";
+    echo "<input type='hidden' name='gone' value ='$edit'>";
     echo "<table>";
     echo "<tr><td>Full Name</td><td><input type='text' value='$arraymem[0]' name='name'></td><td>(First Last)</td</tr>";
-    echo "<tr><td>Nic Name:</td><td><input type='text' value='$arraymem[1]' name='nic'></td><td>(If no nic name, put First name)</td></tr>";
+    echo "<tr><td>Nic Name:</td><td><input type='text' value='$arraymem[1]' name='nic'></td><td>(If no nic name, put Full name)</td></tr>";
     echo "<tr><td>Website:</td><td><input type='text' value='$arraymem[5]' name='web'></td></tr>";
     echo"<tr><td>Email:</td><td><input type='text' value='$arraymem[6]' name='email'></td></tr>";
     echo "<tr><td>Member Since:</td><td><input type='text' value='$arraymem[4]' name='start'></td><td>(Fall XXXX || Spring XXXX)</td></tr>";
