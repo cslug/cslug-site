@@ -1,4 +1,4 @@
-memberlist
+Memberlist
 ----------
 This folder holds files that each contain information about CSLUG members. The
 parser reads the files in the following format:
