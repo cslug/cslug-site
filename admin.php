@@ -47,13 +47,23 @@ if(isset($_POST['whatToDo'])){
             $pagePart = 1;
     }
 }
+
+if(isset($_POST['addnews'])){
+    //write to news file
+    $news = $_POST['newnews'];
+    $title = $POST['title'];    
+    echo "Thank you News has been updated.";
+    echo "<br/>";
+    $pagePart = 0;
+}
+
 echo "<form name='enter' action='?admin' method='post'>";
 if($pagePart == 0){ //enter password
     echo "please enter cslug password.";
     echo "<input type='password' name='password'>";
     echo "<input type='submit' name='submit'>";
     echo "<br/><br/>";
-    echo "*if you don't have the password and feel you need it please contact cslug through our google group groups.google/chico-state-linux-user-group";
+    echo "*Don't know password, and need it? -- <a href='http://www. groups.google/chico-state-linux-user-group'>Ask Here</a>.";
 }
 elseif($pagePart == 1) //choose why here
 {
@@ -71,12 +81,11 @@ elseif($pagePart == 1) //choose why here
 }
 elseif($pagePart == 2) //Add News
 {
-    echo "add news";
-    echo "<br/><br/>";
-	echo "<script src='nicEdit.js' type='text/javascript'></script>";
-	echo "<script type='text/javascript'>bkLib.onDomLoaded(nicEditors.allTextAreas);</script>";
-	echo "<p><textarea name='Note' rows='20' cols='60'>" . $contents . "</textarea></p>";
-	echo "<input type='submit' name='addnews'>";
+    echo "<h3>Add News</h3>";
+    echo "Don't know Markdown? Click link below please. Don't make our Front page Lame!<br/>";
+    echo "<p>News Title: &nbsp; <input type='text' name='title'></p>";
+    echo "<p><textarea name='newnews' rows='20' cols='60'></textarea></p>";
+    echo "<input type='submit' name='addnews'>";
 }
 elseif($pagePart == 3) //Add Minutes
 {
@@ -94,4 +103,8 @@ elseif($pagePart == 6) //Edit Member
 {
 
 }
-echo "</form>";
+?>
+
+<a href="http://warpedvisions.org/projects/markdown-cheat-sheet/" target="_blank">
+Markdown Cheat Sheet</a>
+</form>
