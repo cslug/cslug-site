@@ -51,8 +51,12 @@ if(isset($_POST['whatToDo'])){
 if(isset($_POST['addnews'])){
     //write to news file
     $news = $_POST['newnews'];
-    $title = $POST['title'];    
-    echo "Thank you News has been updated.";
+    $title = $POST['title'];
+    $title;
+    $fh = fopen("news/$title", "w") or die("Can't create file");
+    fwrite($fh, $news);
+    fclose($fh);
+    echo "Thank you News has been saved.";
     echo "<br/>";
     $pagePart = 0;
 }
@@ -63,7 +67,7 @@ if($pagePart == 0){ //enter password
     echo "<input type='password' name='password'>";
     echo "<input type='submit' name='submit'>";
     echo "<br/><br/>";
-    echo "*Don't know password, and need it? -- <a href='http://www. groups.google/chico-state-linux-user-group'>Ask Here</a>.";
+    echo "*Don't know password, and need it? -- <a href='http://www. groups.google/chico-state-linux-user-group'>Ask Here</a>.<br/>";
 }
 elseif($pagePart == 1) //choose why here
 {
