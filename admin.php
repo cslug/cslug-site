@@ -55,13 +55,12 @@ if(isset($_POST['addnews'])){
     if(empty($title)){
         $title = date("m_d_y");
     }    
-    $title;
     $fh = fopen("news/$title", "w") or die("Can't create file");
     fwrite($fh, $news);
     fclose($fh);
-    echo "Thank you News has been saved.";
-    echo "<br/>";
-    $pagePart = 0;
+    echo "Thank you News $title has been saved.";
+    echo "<br/><br/>";
+    $pagePart = 1;
 }
 
 echo "<form name='enter' action='?admin' method='post'>";
