@@ -76,7 +76,7 @@ if(isset($_POST['addmins'])){
     if(empty($mins)){
         $title = date("ymd");
     }    
-    $fh = fopen("minutes/$date", "w") or die("Can't create file");
+    $fh = fopen("minutes/$date", "w") or die("Can't create file - click back - enter date field");
     fwrite($fh, $mins);
     fclose($fh);
     echo "Thank you, Minutes for $date have been saved.";
@@ -95,14 +95,57 @@ if(isset($_POST['addmem'])){
     $web = $_POST['web'];
     $start = $_POST['start'];
     $rank = $_POST['rank'];
+    $current = $_POST['current'];
+    $email = $_POST['email'];
     
     $fh = fopen("members/$nic", "a") or die("Can't create file");
-    fwrite($fh, $name . "\n");
+    fwrite($fh, $name . "\n");    
     fwrite($fh, $nic . "\n");
-    fwrite($fh, $web . "\n");
+    fwrite($fh, $rank . "\n");
+    fwrite($fh, $current . "\n");
     fwrite($fh, $start . "\n");
-    fwrite($fh, $rank . "\n");    
+    fwrite($fh, $web . "\n");
+    fwrite($fh, $email . "\n");        
     fclose($fh);
+    
+    echo "Thank you, Member $nic has been saved.";
+    echo "<br/><br/>";
+    $pagePart = 1;
+}
+//______________________________________________________________
+// member to be edited
+if(isset($_POST['editmem'])){
+    $edit = $_POST['edit'];
+    $pagePart = 6;
+}
+//______________________________________________________________
+// member being edited
+if(isset($_POST['mem'])){
+    //write to news file
+    $name = $_POST['name'];
+    $nic = $_POST['nic'];
+    if(empty($nic)){
+        $nic = str_replace("", "_", $name);
+    }
+    $web = $_POST['web'];
+    $start = $_POST['start'];
+    $rank = $_POST['rank'];
+    $current = $_POST['current'];
+    $email = $_POST['email'];
+    
+    //need to re write this file *****************************************************
+    //unlink("members/" . $nic);
+    
+    $fh = fopen("members/$nic", "w") or die("Can't create file");
+    fwrite($fh, $name . "\n");    
+    fwrite($fh, $nic . "\n");
+    fwrite($fh, $rank . "\n");
+    fwrite($fh, $current . "\n");
+    fwrite($fh, $start . "\n");
+    fwrite($fh, $web . "\n");
+    fwrite($fh, $email . "\n");        
+    fclose($fh);
+    
     echo "Thank you, Member $nic has been saved.";
     echo "<br/><br/>";
     $pagePart = 1;
@@ -142,20 +185,35 @@ elseif($pagePart == 2) //Add News
 }
 elseif($pagePart == 3) //Add Minutes
 {
+    $sample =   "Minutes for month day, year (Febuary 2, 2012)
+---------------------------
+
+Meeting opened at X
+
+The folowing discussions, etc took place:
+
+* stuff...
+    * stuff related to stuff....
+    
+Meeting Adjoruned at Y";
+
+    $date = date(Ymd);
+                
     echo "<h3>Add Meeting Minutes</h3>";
     echo "Don't know Markdown? Click link below please. Don't make our Front page Lame!<br/>";
-    echo "<p>Meeting Date: &nbsp; <input type='text' name='date'>(YYYYMMDD)</p>";
-    echo "<p><textarea name='mins' rows='20' cols='60'></textarea></p>";
+    echo "<p>Meeting Date: &nbsp; <input type='text' name='date' value='$date'>(YYYYMMDD)</p>";
+    echo "<p><textarea name='mins' rows='20' cols='60'>$sample</textarea></p>";
     echo "<input type='submit' name='addmins'>";
 }
 elseif($pagePart == 4) //Add Members
 {
     echo "<h3>Add New Member</h3>";
     echo "<table>";
-    echo "<tr><td>Full Name</td><td><input type='text' name='name'></td></tr>";
-    echo "<tr><td>Nic Name:</td><td><input type='text' name='nic'></td></tr>";
-    echo "<tr><td>Website</td><td><input type='text' name='web'></td></tr>";
-    echo "<tr><td>Member Since:</td><td><input type='text' name='start'></td></tr>";
+    echo "<tr><td>Full Name</td><td><input type='text' name='name'></td><td>(First Last)</td</tr>";
+    echo "<tr><td>Nic Name:</td><td><input type='text' name='nic'></td><td>(If no nic name, put First name)</td></tr>";
+    echo "<tr><td>Website:</td><td><input type='text' name='web'></td></tr>";
+    echo"<tr><td>Email:</td><td><input type='text' name='email'></td></tr>";
+    echo "<tr><td>Member Since:</td><td><input type='text' name='start'></td><td>(Fall XXXX || Spring XXXX)</td></tr>";
     echo "<tr><td>Club Position:</td><td>";
     echo "<select name='rank'>";
     echo "<option value='blank'>Please Select</option>";
@@ -168,17 +226,79 @@ elseif($pagePart == 4) //Add Members
     echo "<option value='Advisor'>Academic Advisor</option>";
     echo "<option value='Alumnus'>Alumnus</option>";
     echo "</select></td></tr>";
+    echo "<tr><td>Current Member:</td><td>";
+    echo "<select name='current'>";
+    echo "<option value='yes'>Yes</option>";
+    echo "<option value='no'>No</option>";    
+    echo "</select></td></tr>";    
     echo "</table>";
     echo "<input type='submit' name='addmem'>";
     echo "<br/><br/>";	
 }
 elseif($pagePart == 5) //Edit Member Selection
 {
-    echo "edit member";
+    echo "edit member coming soon! <br/>";
+    //pull all file names from members/
+    //path to directory to scan
+    $directory = "members/";
+ 
+    //get all image files with a .jpg extension.
+    $members = glob($directory . "*");
+    
+    echo "Current Members:";
+    echo "<select name='edit'>";
+    foreach($members as $members){        
+        $temp = substr( $members, 8 );
+        if($temp != 'README.md'){
+            echo "<option value='$temp'>$temp</option>";
+        }        
+    }
+       
+    echo "</select>";
+    echo "<br/>";
+    echo "<input type='submit' name='editmem'>";
 }
 elseif($pagePart == 6) //Edit Member
 {
-
+    //pull all file names from members/      
+    
+    $f = fopen ("members/$edit", "r");
+    $ln= 0;
+    while ($line= fgets ($f)) {
+        ++$ln;
+        $arraymem[] = $line;       
+    }
+    fclose ($f);     
+    
+    echo "<h3>Add Edit Member</h3>";
+    echo "You are editing club member: $edit";
+    echo "<table>";
+    echo "<tr><td>Full Name</td><td><input type='text' value='$arraymem[0]' name='name'></td><td>(First Last)</td</tr>";
+    echo "<tr><td>Nic Name:</td><td><input type='text' value='$arraymem[1]' name='nic'></td><td>(If no nic name, put First name)</td></tr>";
+    echo "<tr><td>Website:</td><td><input type='text' value='$arraymem[5]' name='web'></td></tr>";
+    echo"<tr><td>Email:</td><td><input type='text' value='$arraymem[6]' name='email'></td></tr>";
+    echo "<tr><td>Member Since:</td><td><input type='text' value='$arraymem[4]' name='start'></td><td>(Fall XXXX || Spring XXXX)</td></tr>";
+    echo "<tr><td>Club Position:</td><td>";
+    echo "<select name='rank'>";
+    echo "<option value='blank'>Please Select</option>";
+    echo "<option value='President'>President</option>";
+    echo "<option value='Vice'>Vice-President</option>";
+    echo "<option value='Treasurer'>Treasurer</option>";
+    echo "<option value='Secretary'>Secretary</option>";
+    echo "<option value='Web'>Web Master</option>";
+    echo "<option value='Events'>Events Coordinator</option>";
+    echo "<option value='Advisor'>Academic Advisor</option>";
+    echo "<option value='Alumnus'>Alumnus</option>";
+    echo "</select></td><td>THIS FIELD DOESN'T AUTO FILL.</td></tr>";
+    echo "<tr><td>Current Member:</td><td>";
+    echo "<select name='current'>";
+    echo "<option value='yes'>Yes</option>";
+    echo "<option value='no'>No</option>";    
+    echo "</select></td><td>THIS FIELD DOESN'T AUTO FILL.</td></tr>";    
+    echo "</table>";
+    echo "<input type='submit' name='mem'>";
+    echo "<br/><br/>";	
+   
 }
 ?>
 
