@@ -100,31 +100,34 @@ if(isset($_POST['addmins'])){
 //______________________________________________________________
 // member was added
 if(isset($_POST['addmem'])){
-	//write to news file
-	$name = $_POST['name'];
-	$nic = $_POST['nic'];
-	if(empty($nic)){
-		$nic = str_replace("", "_", $name);
-	}
-	$web = $_POST['web'];
-	$start = $_POST['start'];
-	$rank = $_POST['rank'];
-	$current = $_POST['current'];
-	$email = $_POST['email'];
-
-	$fh = fopen("members/$nic", "a") or die("Can't create file");
-	fwrite($fh, $name . "\n");    
-	fwrite($fh, $nic . "\n");
-	fwrite($fh, $rank . "\n");
-	fwrite($fh, $current . "\n");
-	fwrite($fh, $start . "\n");
-	fwrite($fh, $web . "\n");
-	fwrite($fh, $email . "\n");        
-	fclose($fh);
-
-	echo "Thank you, Member $nic has been saved.";
-	echo "<br/><br/>";
-	$pagePart = 1;
+    //write to news file
+    $name = $_POST['name'];
+    $nic = $_POST['nic'];
+    if(empty($nic)){
+        $nic = str_replace(" ", "_", $name);
+    }
+    else{
+        $nic = str_replace(" ", "_", $nic);
+    }
+    $web = $_POST['web'];
+    $start = $_POST['start'];
+    $rank = $_POST['rank'];
+    $current = $_POST['current'];
+    $email = $_POST['email'];
+    
+    $fh = fopen("members/$nic", "a") or die("Can't create file");
+    fwrite($fh, $name . "\n");    
+    fwrite($fh, $nic . "\n");
+    fwrite($fh, $rank . "\n");
+    fwrite($fh, $current . "\n");
+    fwrite($fh, $start . "\n");
+    fwrite($fh, $web . "\n");
+    fwrite($fh, $email . "\n");        
+    fclose($fh);
+    
+    echo "Thank you, Member $nic has been saved.";
+    echo "<br/><br/>";
+    $pagePart = 1;
 }
 //______________________________________________________________
 // member to be edited
@@ -134,35 +137,44 @@ if(isset($_POST['editmem'])){
 }
 //______________________________________________________________
 // member being edited
+
+if(isset($_POST['del'])){
+    $gone = $_POST['gone'];
+    unlink($gone);//**************************
+    echo "Gone has been removed from the members list<br/>";
+    $pagePart = 1;
+}
 if(isset($_POST['mem'])){
-	//write to news file
-	$name = $_POST['name'];
-	$nic = $_POST['nic'];
-	if(empty($nic)){
-		$nic = str_replace("", "_", $name);
-	}
-	$web = $_POST['web'];
-	$start = $_POST['start'];
-	$rank = $_POST['rank'];
-	$current = $_POST['current'];
-	$email = $_POST['email'];
-
-	//need to re write this file *****************************************************
-	unlink("members/" . $nic);
-
-	$fh = fopen("members/$nic", "w") or die("Can't create file");
-	fwrite($fh, $name . "\n");    
-	fwrite($fh, $nic . "\n");
-	fwrite($fh, $rank . "\n");
-	fwrite($fh, $current . "\n");
-	fwrite($fh, $start . "\n");
-	fwrite($fh, $web . "\n");
-	fwrite($fh, $email . "\n");        
-	fclose($fh);
-
-	echo "Thank you, Member $nic has been saved.";
-	echo "<br/><br/>";
-	$pagePart = 1;
+    //write to news file
+    $name = $_POST['name'];
+    $nic = $_POST['nic'];
+    if(empty($nic)){
+        $nic = str_replace(" ", "_", $name);
+    }
+    else{
+        $nic = str_replace(" ", "_", $nic);
+    }
+    $web = $_POST['web'];
+    $start = $_POST['start'];
+    $rank = $_POST['rank'];
+    $current = $_POST['current'];
+    $email = $_POST['email'];    
+    
+    unlink("members/" . $nic);
+    
+    $fh = fopen("members/$nic", "w") or die("Can't create file");
+    fwrite($fh, $name . "\n");    
+    fwrite($fh, $nic . "\n");
+    fwrite($fh, $rank . "\n");
+    fwrite($fh, $current . "\n");
+    fwrite($fh, $start . "\n");
+    fwrite($fh, $web . "\n");
+    fwrite($fh, $email . "\n");        
+    fclose($fh);
+    
+    echo "Thank you, Member $nic has been saved.";
+    echo "<br/><br/>";
+    $pagePart = 1;
 }
 //______________________________________________________________
 // start of page parts
@@ -260,7 +272,6 @@ elseif($pagePart == 5) //Edit Member Selection
 			echo "<option value='$temp'>$temp</option>";
 		}        
 	}
-
 	echo "</select>";
 	echo "<br/>";
 	echo "<input type='submit' name='editmem'>";
