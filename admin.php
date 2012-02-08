@@ -101,31 +101,27 @@ if(isset($_POST['addmins'])){
 // member was added
 if(isset($_POST['addmem'])){
     //write to news file
-    $name = $_POST['name'];
-    $nic = $_POST['nic'];
-    if(empty($nic)){
-        $nic = str_replace(" ", "_", $name);
+    $first = $_POST['first'];
+    $last = $_POST['last'];
+    $web = $_POST['web'];
+    $rank = $_POST['rank'];
+    
+    $first = strtolower($first);
+    $last = strtolower($last);
+    $name = $first . "_" . $last;
+    
+    $check = file_exists("members/$name");
+    if($check){
+        echo "Member already saved, please edit from edit member page.";
     }
     else{
-        $nic = str_replace(" ", "_", $nic);
+        $fh = fopen("members/$name", "a") or die("Can't create file");
+        fwrite($fh, $rank . "\n");
+        fwrite($fh, $web . "\n");
+        fclose($fh);
+    
+        echo "Thank you, Member $name has been saved.";
     }
-    $web = $_POST['web'];
-    $start = $_POST['start'];
-    $rank = $_POST['rank'];
-    $current = $_POST['current'];
-    $email = $_POST['email'];
-    
-    $fh = fopen("members/$nic", "a") or die("Can't create file");
-    fwrite($fh, $name . "\n");    
-    fwrite($fh, $nic . "\n");
-    fwrite($fh, $rank . "\n");
-    fwrite($fh, $current . "\n");
-    fwrite($fh, $start . "\n");
-    fwrite($fh, $web . "\n");
-    fwrite($fh, $email . "\n");        
-    fclose($fh);
-    
-    echo "Thank you, Member $nic has been saved.";
     echo "<br/><br/>";
     $pagePart = 1;
 }
@@ -228,28 +224,22 @@ elseif($pagePart == 4) //Add Members
 {
 	echo "<h3>Add New Member</h3>";
 	echo "<table>";
-	echo "<tr><td>Full Name</td><td><input type='text' name='name'></td><td>(First Last)</td</tr>";
-	echo "<tr><td>Nic Name:</td><td><input type='text' name='nic'></td><td>(If no nic name, put First name)</td></tr>";
-	echo "<tr><td>Website:</td><td><input type='text' name='web'></td></tr>";
-	echo"<tr><td>Email:</td><td><input type='text' name='email'></td></tr>";
-	echo "<tr><td>Member Since:</td><td><input type='text' name='start'></td><td>(Fall XXXX || Spring XXXX)</td></tr>";
+	echo "<tr><td>First Name</td><td><input type='text' name='first'></td></tr>";
+	echo "<tr><td>Last Name:</td><td><input type='text' name='last'></td></tr>";
+	echo "<tr><td>Website:</td><td><input type='text' name='web' value='http://></td></tr>";
 	echo "<tr><td>Club Position:</td><td>";
 	echo "<select name='rank'>";
 	echo "<option value='blank'>Please Select</option>";
-	echo "<option value='President'>President</option>";
-	echo "<option value='Vice'>Vice-President</option>";
-	echo "<option value='Treasurer'>Treasurer</option>";
-	echo "<option value='Secretary'>Secretary</option>";
-	echo "<option value='Web'>Web Master</option>";
-	echo "<option value='Events'>Events Coordinator</option>";
-	echo "<option value='Advisor'>Academic Advisor</option>";
-	echo "<option value='Alumnus'>Alumnus</option>";
+	echo "<option value='member'>Member</option>";
+	echo "<option value='president'>President</option>";
+	echo "<option value='vice president'>Vice President</option>";
+	echo "<option value='treasurer'>Treasurer</option>";
+	echo "<option value='secretary'>Secretary</option>";
+	echo "<option value='webmaster'>Web Master</option>";
+	echo "<option value='events coordinatior'>Events Coordinator</option>";
+	echo "<option value='academic advisor'>Academic Advisor</option>";
+	echo "<option value='alumnus'>Alumnus</option>";
 	echo "</select></td></tr>";
-	echo "<tr><td>Current Member:</td><td>";
-	echo "<select name='current'>";
-	echo "<option value='yes'>Yes</option>";
-	echo "<option value='no'>No</option>";    
-	echo "</select></td></tr>";    
 	echo "</table>";
 	echo "<input type='submit' name='addmem'>";
 	echo "<br/><br/>";	
