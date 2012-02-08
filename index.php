@@ -51,9 +51,13 @@ switch($page) {
 			$file_ptr = fopen($file, "r");
 			$position = trim(fgets($file_ptr));
 			$url = trim(fgets($file_ptr));
-			$member = new Member($member_name, $position, $url);
+			$members[] = new Member($member_name, $position, $url);
 			fclose($file_ptr);
 			
+			usort($members, array("Member", "compare"));
+			
+		}
+		foreach($members as $member) {
 			$template = new Template(Page::Member);
 			echo $template->parse(array("name"     => $member->getName(),
 			                            "position" => $member->getPosition(),
@@ -61,7 +65,7 @@ switch($page) {
 			                            "side"     => $side));
 			$side = $side == "left" ? "right" : "left";
 		}
-		break;
+	break;
 	case Page::Minutes:
 		require_once "html/minutes.html";
 		foreach(glob("minutes/*") as $file) {
