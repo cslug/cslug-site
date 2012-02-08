@@ -47,15 +47,18 @@ switch($page) {
 				continue;
 			
 			$member_name = str_replace("members/", "", $file);
+			
 			$file_ptr = fopen($file, "r");
 			$position = trim(fgets($file_ptr));
 			$url = trim(fgets($file_ptr));
 			$member = new Member($member_name, $position, $url);
 			fclose($file_ptr);
+			
 			$template = new Template(Page::Member);
-			echo $template->parse(array("name" => $member->getName(),
-			                            "link" => $member->getLink(),
-			                            "side" => $side));
+			echo $template->parse(array("name"     => $member->getName(),
+			                            "position" => $member->getPosition(),
+			                            "link"     => $member->getLink(),
+			                            "side"     => $side));
 			$side = $side == "left" ? "right" : "left";
 		}
 		break;

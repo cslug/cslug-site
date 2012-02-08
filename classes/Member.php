@@ -8,15 +8,15 @@ class Member {
 	
 	public function __construct($name, $position, $link) {
 		
-		$this->name = explode("-", $name);
+		$name = explode("-", $name);
 		
-		foreach ($this->name as $key => $lc_name) {
-			$this->name[$key] = ucfirst($lc_name);
+		foreach ($name as $key => $lc_name) {
+			$name[$key] = ucfirst($lc_name);
 		}
 		
-		$this->name = implode(" ", $this->name);
+		$this->name = implode(" ", $name);
 		
-		$this->position = ucfirst($position);
+		$this->position = $position;
 		$this->link = $link;
 		
 	}
