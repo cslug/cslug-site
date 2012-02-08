@@ -2,19 +2,40 @@
 
 class Member {
 	
+	public static function compare($member_a, $member_b) {
+		
+		// Specify the order in which ranks appear
+		$lvl = array("president"          => 0,
+		             "vice president"     => 1,
+		             "treasurer"          => 2,
+		             "secretary"          => 3,
+		             "webmaster"          => 4,
+		             "events coordinator" => 5,
+		             "academic advisor"   => 6,
+		             "member"             => 7,
+		             ""                   => 8);
+		
+		if(!isset($lvl[$member_a->position]))
+			$member_a->position = "";
+		if(!isset($lvl[$member_b->position]))
+			$member_b->position = "";
+		
+		if($lvl[$member_a->position] == $lvl[$member_b->position])
+			return 0;
+		
+		return $lvl[$member_a->position] > $lvl[$member_b->position] ? 1 : -1;
+		
+	}
+	
 	private $name;
 	private $position;
 	private $link;
 	
 	public function __construct($name, $position, $link) {
 		
-		$name = explode("-", $name);
-		
-		foreach ($name as $key => $lc_name) {
-			$name[$key] = ucfirst($lc_name);
-		}
-		
-		$this->name = implode(" ", $name);
+		$name = str_replace("_", " ", $name);
+		$name = ucwords($name);
+		$this->name = $name;
 		
 		$this->position = $position;
 		$this->link = $link;
