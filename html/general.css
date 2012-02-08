@@ -97,13 +97,15 @@ div.member-left, div.member-right {
 	background-color: #fafafa;
 	border:           1px dashed #ccc;
 	margin:           10px;
+	width:            350px;
 }
 
 div.member-left {
+	float: left;
 }
 
 div.member-right {
-	float: right;
+	margin-left: 400px;
 }
 
 div.member-name {

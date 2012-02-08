@@ -13,7 +13,7 @@ elseif(isset($_GET["minutes"]))
 elseif(isset($_GET["links"]))
 	$page = Page::Links;
 elseif(isset($_GET["admin"]))
-    $page = Page::Admin;
+	$page = Page::Admin;
 else // default page
 	$page = Page::Index;
 
@@ -48,7 +48,9 @@ switch($page) {
 			
 			$member_name = str_replace("members/", "", $file);
 			$file_ptr = fopen($file, "r");
-			$member = new Member($member_name, fgets($file_ptr), fgets($file_ptr));
+			$position = trim(fgets($file_ptr));
+			$url = trim(fgets($file_ptr));
+			$member = new Member($member_name, $position, $url);
 			fclose($file_ptr);
 			$template = new Template(Page::Member);
 			echo $template->parse(array("name" => $member->getName(),
