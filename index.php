@@ -40,15 +40,21 @@ switch($page) {
 		break;
 	case Page::Members:
 		require_once "html/members.html";
+		$side = "left";
 		foreach(glob("members/*") as $file) {
 			
 			if(strstr($file, "README.md"))
 				continue;
 			
-			$file_ptr = fopen($file);
 			$member_name = str_replace("members/", "", $file);
+			$file_ptr = fopen($file, "r");
 			$member = new Member($member_name, fgets($file_ptr), fgets($file_ptr));
 			fclose($file_ptr);
+			$template = new Template(Page::Member);
+			echo $template->parse(array("name" => $member->getName(),
+			                            "link" => $member->getLink(),
+			                            "side" => $side));
+			$side = $side == "left" ? "right" : "left";
 		}
 		break;
 	case Page::Minutes:

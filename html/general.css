@@ -86,9 +86,30 @@ a:hover {
 	text-decoration: underline;
 }
 
-div#footer{
-		font-size:      10px;
-		font-family:    arial, sans-serif;
-		margin-top:     10px;
-		text-align:     center;
+div#footer {
+	font-size:      10px;
+	font-family:    arial, sans-serif;
+	margin-top:     10px;
+	text-align:     center;
+}
+
+div.member-left, div.member-right {
+	background-color: #fafafa;
+	border:           1px dashed #ccc;
+	margin:           10px;
+}
+
+div.member-left {
+}
+
+div.member-right {
+	float: right;
+}
+
+div.member-name {
+	font-size: 16px;
+}
+
+a.member-link {
+	
 }

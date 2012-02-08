@@ -7,6 +7,7 @@ class Page {
 	const Links       = "html/links.html";
 	const NewsItem    = "html/news-item.html";
 	const MinutesItem = "html/minutes-item.html";
+	const Member      = "html/member.html";
 	const Admin       = "admin.php";
 }
 
