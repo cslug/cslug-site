@@ -16,8 +16,8 @@ instructions][1] on forking repositories, and it's the easiest way (for both
 parties) to contribute or fix code.
 
 If you're a member looking to add yourself to the site's memberlist, just fork
-us, add/commit/push your member file according to [the README][2], then submit
-a pull request.
+us, add/commit/push your member file according to [the memberfile README][2],
+then submit a pull request.
 
 [1]:http://help.github.com/fork-a-repo/
 [2]:https://github.com/cslug/cslug-site/tree/master/members
