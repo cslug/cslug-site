@@ -15,7 +15,7 @@ $pagePart = 0;
 if(isset($_POST['password'])){
 		$ck = $_POST['password'];
 		$ck = hash('sha256', $ck);
-		$pw = file_get_contents("passwd");
+		$pw = file_get_contents("private/passwd");
 		$pw = trim($pw);
 		
 		if($ck == $pw)
