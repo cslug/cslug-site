@@ -47,7 +47,7 @@ class Member {
 	}
 	
 	public function getPosition() {
-		return $this->position;
+		return ucwords($this->position);
 	}
 	
 	public function getLink() {
