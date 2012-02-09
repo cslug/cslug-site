@@ -226,7 +226,7 @@ elseif($pagePart == 4) //Add Members
 	echo "<table>";
 	echo "<tr><td>First Name</td><td><input type='text' name='first'></td></tr>";
 	echo "<tr><td>Last Name:</td><td><input type='text' name='last'></td></tr>";
-	echo "<tr><td>Website:</td><td><input type='text' name='web' value='http://></td></tr>";
+	echo "<tr><td>Website:</td><td><input type='text' name='web' value='http://'></td></tr>";
 	echo "<tr><td>Club Position:</td><td>";
 	echo "<select name='rank'>";
 	echo "<option value='blank'>Please Select</option>";
