@@ -96,6 +96,7 @@ div#footer {
 div.member-left, div.member-right {
 	background-color: #fafafa;
 	border:           1px dashed #ccc;
+	height:           45px;
 	margin:           10px;
 	padding:          10px;
 	width:            350px;
