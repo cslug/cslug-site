@@ -96,6 +96,7 @@ div#footer {
 div.member-left, div.member-right {
 	background-color: #fafafa;
 	border:           1px dashed #ccc;
+	display:          inline-block;
 	height:           45px;
 	margin:           10px;
 	padding:          10px;
@@ -103,11 +104,9 @@ div.member-left, div.member-right {
 }
 
 div.member-left {
-	float: left;
 }
 
 div.member-right {
-	margin-left: 400px;
 }
 
 div.member-name {
