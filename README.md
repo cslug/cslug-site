@@ -1,8 +1,8 @@
 cslug-site
 ----------
 This is the code for the website of the Chico State Linux User Group (CSLUG).
-The site is currently undergoing a rebuild; check out the old/current site code
-under the `2010site` branch.
+The site is new as of Spring '12; for the old site's source, check the
+`2010site` branch.
 
 How do I contribute?
 -----------------
