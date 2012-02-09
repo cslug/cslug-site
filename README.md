@@ -38,4 +38,4 @@ Some quick code structure bullets
   may want to tell your editor to display tab characters (e.g. [vim][5]).
 
 [4]: http://www.iovene.com/61/
-[5]: https://github.com/skoh-fley/dotfiles/blob/b3f89f19de2b82e0f7fd33e5b88627c473efc457/.vimrc#L37
+[5]: https://github.com/skoh-fley/dotfiles/blob/820bd71056563792504faeea9814b4ea1268f8f4/.vimrc#L43
