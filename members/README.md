@@ -13,6 +13,10 @@ parser reads the files in the following format:
   must start with `http://`) to the member's homepage, portfolio or other
   appropriate personal website.
 
+    * Valid member positions are `president`, `vice president`, `treasurer`,
+      `secretary`, `webmaster`, `events coordinator`, `academic advisor`,
+      and `member`. (If you're not sure, you're a `member`.)
+
 An example file entitled `ben_carlsson` follows:
 
 	member
