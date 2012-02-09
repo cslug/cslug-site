@@ -20,7 +20,7 @@ instructions][2] on forking repositories, and it's the easiest way (for both
 parties) to merge contributed/fixed code.
 
 If you're a member looking to add yourself to the site's memberlist, just fork
-us, add/commit/push your member file according to [the memberfile README][3],
+us, add/commit/push your member file according to [the memberlist README][3],
 then submit a pull request.
 
 [2]:http://help.github.com/fork-a-repo/
