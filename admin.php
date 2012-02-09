@@ -15,7 +15,7 @@ $pagePart = 0;
 if(isset($_POST['password'])){
 		$ck = $_POST['password'];
 		$ck = hash('sha256', $ck);
-		$pw = file_get_contents("private/passwd");
+		$pw = file_get_contents("private/passwd") or die("can't open file");
 		$pw = trim($pw);
 		
 		if($ck == $pw)
@@ -29,10 +29,11 @@ if(isset($_POST['password'])){
 		{
 			echo "wrong password see * below";
 			echo "<br/><br/>";
+            $pagePart = 0;
 		}
 } elseif(!isset($_SESSION["admin"]) || $_SESSION["admin"] !== true){ //enter password
 	echo "please enter cslug password.";
-	echo "<input type='password' name='password'>";
+	echo "<input type='password' size='50' name='password'>";
 	echo "<input type='submit' name='submit'>";
 	echo "<br/><br/>";
 	echo "*Don't know password, and need it? -- <a href='http://www. groups.google/chico-state-linux-user-group'>Ask Here</a>.<br/>";
@@ -133,42 +134,20 @@ if(isset($_POST['editmem'])){
 }
 //______________________________________________________________
 // member being edited
-
-if(isset($_POST['del'])){
-    $gone = $_POST['gone'];
-    unlink($gone);//**************************
-    echo "Gone has been removed from the members list<br/>";
-    $pagePart = 1;
-}
 if(isset($_POST['mem'])){
     //write to news file
     $name = $_POST['name'];
-    $nic = $_POST['nic'];
-    if(empty($nic)){
-        $nic = str_replace(" ", "_", $name);
-    }
-    else{
-        $nic = str_replace(" ", "_", $nic);
-    }
     $web = $_POST['web'];
-    $start = $_POST['start'];
     $rank = $_POST['rank'];
-    $current = $_POST['current'];
-    $email = $_POST['email'];    
     
-    unlink("members/" . $nic);
+    unlink("members/" . $name);
     
-    $fh = fopen("members/$nic", "w") or die("Can't create file");
-    fwrite($fh, $name . "\n");    
-    fwrite($fh, $nic . "\n");
+    $fh = fopen("members/$name", "w") or die("Can't create file");
     fwrite($fh, $rank . "\n");
-    fwrite($fh, $current . "\n");
-    fwrite($fh, $start . "\n");
     fwrite($fh, $web . "\n");
-    fwrite($fh, $email . "\n");        
     fclose($fh);
     
-    echo "Thank you, Member $nic has been saved.";
+    echo "Thank you, Member $name has been saved.";
     echo "<br/><br/>";
     $pagePart = 1;
 }
@@ -193,7 +172,7 @@ elseif($pagePart == 2) //Add News
 {
 	echo "<h3>Add News</h3>";
 	echo "Don't know Markdown? Click link below please. Don't make our Front page Lame!<br/>";
-	echo "<p>News Title: &nbsp; <input type='text' name='title'></p>";
+	echo "<p>News Title: &nbsp; <input type='text' size='50' name='title'></p>";
 	echo "<p><textarea name='newnews' rows='20' cols='60'></textarea></p>";
 	echo "<input type='submit' name='addnews'>";
 	echo "<br/><br/>";	
@@ -226,7 +205,7 @@ elseif($pagePart == 4) //Add Members
 	echo "<table>";
 	echo "<tr><td>First Name</td><td><input type='text' name='first'></td></tr>";
 	echo "<tr><td>Last Name:</td><td><input type='text' name='last'></td></tr>";
-	echo "<tr><td>Website:</td><td><input type='text' name='web' value='http://'></td></tr>";
+	echo "<tr><td>Website:</td><td><input type='text' name='web' size='50' value='http://'></td></tr>";
 	echo "<tr><td>Club Position:</td><td>";
 	echo "<select name='rank'>";
 	echo "<option value='blank'>Please Select</option>";
@@ -281,29 +260,22 @@ elseif($pagePart == 6) //Edit Member
 	echo "<h3>Add Edit Member</h3>";
 	echo "You are editing club member: $edit";
 	echo "<table>";
-	echo "<tr><td>Full Name</td><td><input type='text' value='$arraymem[0]' name='name'></td><td>(First Last)</td</tr>";
-	echo "<tr><td>Nic Name:</td><td><input type='text' value='$arraymem[1]' name='nic'></td><td>(If no nic name, put First name)</td></tr>";
-	echo "<tr><td>Website:</td><td><input type='text' value='$arraymem[5]' name='web'></td></tr>";
-	echo"<tr><td>Email:</td><td><input type='text' value='$arraymem[6]' name='email'></td></tr>";
-	echo "<tr><td>Member Since:</td><td><input type='text' value='$arraymem[4]' name='start'></td><td>(Fall XXXX || Spring XXXX)</td></tr>";
+	echo "<tr><td>Website:</td><td><input type='text' value='$arraymem[1]' size='50' name='web'></td></tr>";
 	echo "<tr><td>Club Position:</td><td>";
 	echo "<select name='rank'>";
 	echo "<option value='blank'>Please Select</option>";
-	echo "<option value='President'>President</option>";
-	echo "<option value='Vice'>Vice-President</option>";
-	echo "<option value='Treasurer'>Treasurer</option>";
-	echo "<option value='Secretary'>Secretary</option>";
-	echo "<option value='Web'>Web Master</option>";
-	echo "<option value='Events'>Events Coordinator</option>";
-	echo "<option value='Advisor'>Academic Advisor</option>";
-	echo "<option value='Alumnus'>Alumnus</option>";
+	echo "<option value='member'>Member</option>";
+	echo "<option value='president'>President</option>";
+	echo "<option value='vice president'>Vice President</option>";
+	echo "<option value='treasurer'>Treasurer</option>";
+	echo "<option value='secretary'>Secretary</option>";
+	echo "<option value='webmaster'>Webmaster</option>";
+	echo "<option value='events coordinator'>Events Coordinator</option>";
+	echo "<option value='academic advisor'>Academic Advisor</option>";
+	echo "<option value='alumnus'>Alumnus</option>";
 	echo "</select></td><td>THIS FIELD DOESN'T AUTO FILL.</td></tr>";
-	echo "<tr><td>Current Member:</td><td>";
-	echo "<select name='current'>";
-	echo "<option value='yes'>Yes</option>";
-	echo "<option value='no'>No</option>";    
-	echo "</select></td><td>THIS FIELD DOESN'T AUTO FILL.</td></tr>";    
 	echo "</table>";
+    echo "<input type='hidden' name='name' value='$edit'>";
 	echo "<input type='submit' name='mem'>";
 	echo "<br/><br/>";	
 
