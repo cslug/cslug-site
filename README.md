@@ -34,8 +34,8 @@ Some quick code structure bullets
   eventually parsed by the `Template` class.
 * The members, minutes, and news pages grab data from their respective folders
   -- see each folder's README for more info.
-* This project uses [tabs for indentation and spaces for alignment][4]. (You
-  might want to tell your editor to display tab characters -- e.g. [vim][5])
+* This project uses [tabs for indentation and spaces for alignment][4]. You
+  may want to tell your editor to display tab characters (e.g. [vim][5]).
 
 [4]: http://www.iovene.com/61/
 [5]: https://github.com/skoh-fley/dotfiles/blob/b3f89f19de2b82e0f7fd33e5b88627c473efc457/.vimrc#L37
