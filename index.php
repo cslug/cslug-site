@@ -68,7 +68,7 @@ switch($page) {
 	break;
 	case Page::Minutes:
 		require_once "html/minutes.html";
-		foreach(glob("minutes/*") as $file) {
+		foreach(array_reverse(glob("minutes/*")) as $file) {
 			
 			if(strstr($file, "README.md"))
 				continue;
