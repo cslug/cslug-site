@@ -6,6 +6,11 @@ under the `2010site` branch.
 
 How do I contribute?
 -----------------
+Just fork and do whatever you want, then pull request. Don't be shy with it; if
+you see something that could be better, make it better and rub it in everyone's
+faces afterwards for the warm fuzzies. And remember that this is a club project
+-- don't make suggestions; make changes.
+
 If you're new to git, don't be intimidated. GitHub has [very helpful
 instructions][1] on forking repositories, and it's the easiest way (for both
 parties) to contribute or fix code.
