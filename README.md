@@ -35,7 +35,8 @@ Some quick code structure bullets
 * The members, minutes, and news pages grab data from their respective folders
   -- see each folder's README for more info.
 * This project uses [tabs for indentation and spaces for alignment][4]. You
-  may want to tell your editor to display tab characters (e.g. [vim][5]).
+  may want to tell your editor to visibly display tab characters (e.g.
+  [vim][5]).
 
 [4]: http://www.iovene.com/61/
 [5]: https://github.com/skoh-fley/dotfiles/blob/820bd71056563792504faeea9814b4ea1268f8f4/.vimrc#L43
