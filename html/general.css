@@ -86,10 +86,13 @@ a:hover {
 }
 
 div#footer {
-	font-size:      10px;
-	font-family:    arial, sans-serif;
-	margin-top:     10px;
-	text-align:     center;
+	font-family: arial, sans-serif;
+	font-size:   10px;
+	margin-top:  10px;
+	text-align:  center;
+	position:    absolute;
+	bottom:      5px;
+	left:        175px;
 }
 
 div.member-left, div.member-right {
