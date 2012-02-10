@@ -124,15 +124,6 @@ hr {
 blockquote {
 	background-color: #fafafa;
 	border:           1px dashed #ccc;
-	padding:          5px;
-}
-
-code {
-	background-color: #fafafa;
-	border:           1px dashed #ccc;
-	display:          block;
-	font-family:      monospace;
-	font-size:        12px;
 	margin:           10px 0 10px 30px;
 	padding:          10px;
 }
