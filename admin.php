@@ -29,7 +29,8 @@ if(isset($_POST['password'])){
 		{
 			echo "wrong password see * below";
 			echo "<br/><br/>";
-            $pagePart = 0;
+			$pagePart = 0;
+			exit();
 		}
 } elseif(!isset($_SESSION["admin"]) || $_SESSION["admin"] !== true){ //enter password
 	echo "please enter cslug password.";
