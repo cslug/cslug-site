@@ -40,6 +40,9 @@ class Member {
 		$this->position = $position;
 		$this->link = $link;
 		
+		if($this->position == "")
+			$this->position = "member";
+		
 	}
 	
 	public function getName() {
