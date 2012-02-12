@@ -61,7 +61,7 @@ switch($page) {
 			$template = new Template(Page::Member);
 			echo $template->parse(array("name"     => $member->getName(),
 			                            "position" => $member->getPosition(),
-			                            "link"     => $member->getLink(),
+			                            "link"     => $member->getLink() == "" ? "<br/>" : $member->getLink(),
 			                            "side"     => $side));
 			$side = $side == "left" ? "right" : "left";
 		}
