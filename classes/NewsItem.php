@@ -2,12 +2,6 @@
 
 class NewsItem {
 	
-	private static $all;
-	
-	public function all() {
-		return self::$all;
-	}
-	
 	private $title;
 	private $content;
 	private $timestamp;
@@ -21,19 +15,17 @@ class NewsItem {
 		$this->title = str_replace("-", " ", $this->title);
 		
 		$this->content = Markdown($this->content);
-		
-		self::$all[] = $this;
 	}
 	
-	public function getTitle() {
+	public function get_title() {
 		return $this->title;
 	}
 	
-	public function getContent() {
+	public function get_content() {
 		return $this->content;
 	}
 	
-	public function getTimestamp() {
+	public function get_timestamp() {
 		return $this->timestamp;
 	}
 	

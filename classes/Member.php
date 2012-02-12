@@ -2,29 +2,35 @@
 
 class Member {
 	
+	/*
+	 * A list of valid member positions.
+	 * If a member's position isn't in this array, the member won't be displayed.
+	 * The values are used for position ordering.
+	 */
+	private static $pos= array("president"          => 0,
+	                                  "vice president"     => 1,
+	                                  "treasurer"          => 2,
+	                                  "secretary"          => 3,
+	                                  "webmaster"          => 4,
+	                                  "events coordinator" => 5,
+	                                  "academic advisor"   => 6,
+	                                  "alumnus"            => 7,
+	                                  "member"             => 8);
+	
 	public static function compare($member_a, $member_b) {
 		
 		// Specify the order in which ranks appear
-		$lvl = array("president"          => 0,
-		             "vice president"     => 1,
-		             "treasurer"          => 2,
-		             "secretary"          => 3,
-		             "webmaster"          => 4,
-		             "events coordinator" => 5,
-		             "academic advisor"   => 6,
-		             "alumnus"            => 7,
-		             "member"             => 8,
-		             ""                   => 9);
 		
-		if(!isset($lvl[$member_a->position]))
+		if(!isset(Member::$pos[$member_a->position]))
 			$member_a->position = "";
-		if(!isset($lvl[$member_b->position]))
+		if(!isset(Member::$pos[$member_b->position]))
 			$member_b->position = "";
 		
-		if($lvl[$member_a->position] == $lvl[$member_b->position])
+		if(Member::$pos[$member_a->position] == Member::$pos[$member_b->position])
 			return 0;
 		
-		return $lvl[$member_a->position] > $lvl[$member_b->position] ? 1 : -1;
+		return Member::$pos[$member_a->position]
+		     > Member::$pos[$member_b->position] ? 1 : -1;
 		
 	}
 	
@@ -38,24 +44,25 @@ class Member {
 		$name = ucwords($name);
 		$this->name = $name;
 		
-		$this->position = $position;
+		$this->position = empty($position) ? "member" : $position;
 		$this->link = $link;
-		
-		if($this->position == "")
-			$this->position = "member";
 		
 	}
 	
-	public function getName() {
+	public function get_name() {
 		return $this->name;
 	}
 	
-	public function getPosition() {
+	public function get_position() {
 		return ucwords($this->position);
 	}
 	
-	public function getLink() {
+	public function get_link() {
 		return $this->link;
+	}
+
+	public function is_position_valid() {
+		return isset(Member::$pos[$this->position]);
 	}
 	
 }

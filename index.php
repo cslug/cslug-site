@@ -33,14 +33,14 @@ switch($page) {
 			                          file_get_contents($file),
 			                          filemtime($file));
 			$template = new Template(Page::NewsItem);
-			echo $template->parse(array("title"   => $news_item->getTitle(),
-			                            "content" => $news_item->getContent()));
+			echo $template->parse(array("title"   => $news_item->get_title(),
+			                            "content" => $news_item->get_content()));
 			
 		}
 		break;
 	case Page::Members:
 		require_once "html/members.html";
-		$side = "left";
+		
 		foreach(glob("members/*") as $file) {
 			
 			if(strstr($file, "README.md"))
@@ -54,16 +54,22 @@ switch($page) {
 			$members[] = new Member($member_name, $position, $url);
 			fclose($file_ptr);
 			
-			usort($members, array("Member", "compare"));
-			
 		}
+		
+		usort($members, array("Member", "compare"));
+		
 		foreach($members as $member) {
-			$template = new Template(Page::Member);
-			echo $template->parse(array("name"     => $member->getName(),
-			                            "position" => $member->getPosition(),
-			                            "link"     => $member->getLink() == "" ? "<br/>" : $member->getLink(),
-			                            "side"     => $side));
+			
+			if(!$member->is_position_valid())
+				continue;
+			
 			$side = $side == "left" ? "right" : "left";
+			
+			$template = new Template(Page::Member);
+			echo $template->parse(array("name"     => $member->get_name(),
+			                            "position" => $member->get_position(),
+			                            "link"     => $member->get_link() == "" ? "<br/>" : $member->get_link(),
+			                            "side"     => $side));
 		}
 	break;
 	case Page::Minutes:
@@ -77,8 +83,8 @@ switch($page) {
 			                                file_get_contents($file),
 			                                filemtime($file));
 			$template = new Template(Page::MinutesItem);
-			echo $template->parse(array("title"   => $minutes_item->getTitle(),
-			                            "content" => $minutes_item->getContent()));
+			echo $template->parse(array("title"   => $minutes_item->get_title(),
+			                            "content" => $minutes_item->get_content()));
 		}
 		break;
 	case Page::Links:
