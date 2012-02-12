@@ -12,8 +12,9 @@ class Member {
 		             "webmaster"          => 4,
 		             "events coordinator" => 5,
 		             "academic advisor"   => 6,
-		             "member"             => 7,
-		             ""                   => 8);
+		             "alumnus"            => 7,
+		             "member"             => 8,
+		             ""                   => 9);
 		
 		if(!isset($lvl[$member_a->position]))
 			$member_a->position = "";
