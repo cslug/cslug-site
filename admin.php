@@ -37,7 +37,7 @@ if(isset($_POST['password'])){
 	echo "<input type='password' size='50' name='password'>";
 	echo "<input type='submit' name='submit'>";
 	echo "<br/><br/>";
-	echo "*Don't know password, and need it? -- <a href='http://www. groups.google/chico-state-linux-user-group'>Ask Here</a>.<br/>";
+	echo "*Don't know password, and need it? -- <a href='http://groups.google.com/group/chico-state-linux-user-group'>Ask Here</a>.<br/>";
 	exit();
 	}
 
