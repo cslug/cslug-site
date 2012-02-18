@@ -8,14 +8,14 @@ class Member {
 	 * The values are used for position ordering.
 	 */
 	private static $pos= array("president"          => 0,
-	                                  "vice president"     => 1,
-	                                  "treasurer"          => 2,
-	                                  "secretary"          => 3,
-	                                  "webmaster"          => 4,
-	                                  "events coordinator" => 5,
-	                                  "academic advisor"   => 6,
-	                                  "alumnus"            => 7,
-	                                  "member"             => 8);
+	                           "vice president"     => 1,
+	                           "treasurer"          => 2,
+	                           "secretary"          => 3,
+	                           "webmaster"          => 4,
+	                           "events coordinator" => 5,
+	                           "academic advisor"   => 6,
+	                           "alumnus"            => 7,
+	                           "member"             => 8);
 	
 	public static function compare($member_a, $member_b) {
 		
