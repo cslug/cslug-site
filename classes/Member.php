@@ -7,30 +7,34 @@ class Member {
 	 * If a member's position isn't in this array, the member won't be displayed.
 	 * The values are used for position ordering.
 	 */
-	private static $pos= array("president"          => 0,
-	                           "vice president"     => 1,
-	                           "treasurer"          => 2,
-	                           "secretary"          => 3,
-	                           "webmaster"          => 4,
-	                           "events coordinator" => 5,
-	                           "academic advisor"   => 6,
-	                           "alumnus"            => 7,
-	                           "member"             => 8);
+	private static $pos = array("president"          => 0,
+	                            "vice president"     => 1,
+	                            "treasurer"          => 2,
+	                            "secretary"          => 3,
+	                            "webmaster"          => 4,
+	                            "events coordinator" => 5,
+	                            "academic advisor"   => 6,
+	                            "alumnus"            => 7,
+	                            "member"             => 8);
 	
+	/*
+	 * Returns the difference of the positions of Members $member_a and
+	 * $member_b, using the corresponding values in array Member::$pos to rank
+	 * positions using integer values.
+	 *
+	 * e.g. If Member $a has position "president", and Member $b has position
+	 * "treasurer", Member::compare($a, $b) would return -2 while
+	 * Member::compare($b, $a) would return 2.
+	 */
 	public static function compare($member_a, $member_b) {
-		
-		// Specify the order in which ranks appear
 		
 		if(!isset(Member::$pos[$member_a->position]))
 			$member_a->position = "";
 		if(!isset(Member::$pos[$member_b->position]))
 			$member_b->position = "";
 		
-		if(Member::$pos[$member_a->position] == Member::$pos[$member_b->position])
-			return 0;
-		
 		return Member::$pos[$member_a->position]
-		     > Member::$pos[$member_b->position] ? 1 : -1;
+		     - Member::$pos[$member_b->position];
 		
 	}
 	
