@@ -22,7 +22,7 @@ class Member {
 	 * $member_b, using the corresponding values in array Member::$pos to rank
 	 * positions using integer values.
 	 *
-	 * e.g. If Member $a has position "president", and Member $b has position
+	 * e.g. If Member $a has position "president" and Member $b has position
 	 * "treasurer", Member::compare($a, $b) would return -2 while
 	 * Member::compare($b, $a) would return 2.
 	 */
