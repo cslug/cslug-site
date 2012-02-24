@@ -39,4 +39,4 @@ Some quick code structure bullets
   [vim][5]).
 
 [4]: http://www.iovene.com/61/
-[5]: https://github.com/skoh-fley/dotfiles/blob/820bd71056563792504faeea9814b4ea1268f8f4/.vimrc#L43
+[5]: https://github.com/skoh-fley/dotfiles/blob/6b99f9965291b57377fbcd0eeaef48e6f0b270c6/.vimrc#L43
