@@ -11,8 +11,7 @@ body {
 	font-size:   13px;
 }
 
-#logo:link, #logo:visited {
-	background-color: #fff;
+#logo a:link, #logo a:visited {
 	color:            #000;
 	font-family:      sans-serif;
 	font-size:        80px;
@@ -26,8 +25,16 @@ body {
 	top:              -1px;
 }
 
+#logo {
+    	background-color: #fff;
+}
+
 #logo:hover {
 	background-color: #000;
+	
+}
+
+#logo:hover a {
 	color:            #fff;
 }
 
@@ -41,7 +48,7 @@ div#left-margin {
 /* Add 1px to width for firefox */
 @-moz-document url-prefix() {
 	div#left-margin {
-		width:       164px;
+		width:       191px;
 	}
 }
 
