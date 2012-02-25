@@ -11,7 +11,7 @@ body {
 	font-size:   13px;
 }
 
-a#logo:link, a#logo:visited {
+#logo:link, #logo:visited {
 	background-color: #fff;
 	color:            #000;
 	font-family:      sans-serif;
@@ -26,7 +26,7 @@ a#logo:link, a#logo:visited {
 	top:              -1px;
 }
 
-a#logo:hover {
+#logo:hover {
 	background-color: #000;
 	color:            #fff;
 }
