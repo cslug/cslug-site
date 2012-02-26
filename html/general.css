@@ -45,10 +45,13 @@ div#left-margin {
 	width:            163px;
 }
 
-/* Add 1px to width for firefox */
+/* Fix for firefox */
 @-moz-document url-prefix() {
 	div#left-margin {
-		width:       191px;
+		width:       164px;
+	}
+	#logo a {
+		font-size:	 70px !important;
 	}
 }
 
