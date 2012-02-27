@@ -41,13 +41,14 @@ div#left-margin {
 	background-color: #000;
 	float:            left;
 	min-height:       110%;
+	text-align:       center;
 	width:            163px;
 }
 
 /* Fix for firefox */
 @-moz-document url-prefix() {
 	div#left-margin {
-		width:       164px;
+		width: 164px;
 	}
 	#logo a {
 		font-size:	 70px !important;
