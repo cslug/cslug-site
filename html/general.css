@@ -26,12 +26,11 @@ body {
 }
 
 #logo {
-    	background-color: #fff;
+	background-color: #fff;
 }
 
 #logo:hover {
 	background-color: #000;
-	
 }
 
 #logo:hover a {
