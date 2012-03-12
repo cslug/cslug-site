@@ -71,7 +71,7 @@ switch($page) {
 			                            "link"     => $member->get_link() == "" ? "<br/>" : $member->get_link(),
 			                            "side"     => $side));
 		}
-	break;
+		break;
 	case Page::Minutes:
 		require_once "html/minutes.html";
 		foreach(array_reverse(glob("minutes/*")) as $file) {
