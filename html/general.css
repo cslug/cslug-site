@@ -3,7 +3,7 @@
  * parent elements including, in HTML5, html, must have a 100% height as well.
  */
 html, body {
-	height: 100%;
+	height: 99%;
 }
 
 body {
@@ -39,11 +39,10 @@ body {
 
 div#left-margin {
 	background-color: #000;
-	float:            left;
-	min-height:       110%;
+	height:           100%;
 	text-align:       center;
-	width:            163px;
-	position: fixed;
+	width:            164px;
+	position:         absolute;
 }
 
 /* Fix for firefox */
@@ -110,7 +109,16 @@ div#footer {
 	font-family: arial, sans-serif;
 	font-size:   10px;
 	padding:     0 10px 15px 0;
+	position:    relative;
+	bottom:      50px;
+	right:       10px;
 	text-align:  right;
+}
+
+div#page-body {
+	display:    inline-block;
+	position:   relative;
+	min-height: 100%;
 }
 
 a.footer {
