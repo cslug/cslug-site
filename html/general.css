@@ -43,6 +43,7 @@ div#left-margin {
 	min-height:       110%;
 	text-align:       center;
 	width:            163px;
+	position: fixed;
 }
 
 /* Fix for firefox */
