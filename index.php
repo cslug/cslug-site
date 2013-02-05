@@ -25,7 +25,7 @@ switch($page) {
 		require_once "html/index.html";
 		foreach(glob("news/*") as $file) {
 			
-			if(strstr($file, "README.md"))
+			if(strstr($file, "README.md") || strstr($file, "archived"))
 				continue;
 			
 			$news_title = str_replace("news/", "", $file);
