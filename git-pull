@@ -1,4 +1,0 @@
-#!/bin/bash
-
-cd /opt/html/htdocs/cslug/
-git pull origin master
