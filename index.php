@@ -34,7 +34,7 @@ switch($page) {
 			                          filemtime($file));
 			$template = new Template(Page::NewsItem);
 			echo $template->parse(array("title"   => $news_item->get_title(),
-			                            "content" => $news_item->get_content()));
+			                           "content" => $news_item->get_content()));
 			
 		}
 		break;
