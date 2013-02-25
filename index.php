@@ -67,9 +67,9 @@ switch($page) {
 			
 			$template = new Template(Page::Member);
 			echo $template->parse(array("name"     => $member->get_name(),
-			                            "position" => $member->get_position(),
-			                            "link"     => $member->get_link() == "" ? "<br/>" : $member->get_link(),
-			                            "side"     => $side));
+			                           "position" => $member->get_position(),
+			                           "link"     => $member->get_link() == "" ? "<br/>" : $member->get_link(),
+			                           "side"     => $side));
 		}
 		break;
 	case Page::Minutes:
