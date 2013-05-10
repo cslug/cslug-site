@@ -8,7 +8,6 @@ class Page {
 	const NewsItem    = "html/news-item.html";
 	const MinutesItem = "html/minutes-item.html";
 	const Member      = "html/member.html";
-	const Admin       = "admin.php";
 }
 
 ?>

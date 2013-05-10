@@ -12,8 +12,6 @@ elseif(isset($_GET["minutes"]))
 	$page = Page::Minutes;
 elseif(isset($_GET["links"]))
 	$page = Page::Links;
-elseif(isset($_GET["admin"]))
-	$page = Page::Admin;
 else // default page
 	$page = Page::Index;
 
@@ -89,9 +87,6 @@ switch($page) {
 		break;
 	case Page::Links:
 		require_once "html/links.html";
-		break;
-	case Page::Admin:
-		require_once "admin.php";
 		break;
 	
 }
