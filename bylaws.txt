@@ -1,4 +1,4 @@
-﻿The Constitution of Chico State Linux User Group
+The Constitution of Chico State Linux User Group
 
 September 3, 2010
 
@@ -18,7 +18,7 @@ Article III. Membership
   b) All persons who wish to maintain membership in CSLUG must join the
      official CSLUG mailing list. The email address used must be valid and the
      email must be regularly checked by the CSLUG member.
-  c) Any person not registered as a student at CSU, Chico shall, if so desired,
+  c) Any person not registered as a student at CSU Chico shall, if so desired,
      be considered an associate member of CSLUG if they pass all other
      membership requirements and have attended at least one CSLUG meeting.
      Associate members are not eligible to vote in CSLUG elections or hold
@@ -42,19 +42,19 @@ Article III. Membership
 
 Article IV. Membership
 1. Criteria for holding an Officer Position
-  a) All officers must be regularly enrolled students in good standing at CSU,
+  a) All officers must be regularly enrolled students in good standing at CSU
      Chico taking no less than 6 credit hours of course work during the
      semester coinciding with their official position.
 2. Election and Removal of Officers
   a) Officers shall be elected by a simple majority vote of the CSLUG members
-     present at the last month's meeting of each Spring semester.
+     present at the last month's meeting of each spring semester.
   b) The term of office for each position is one full school year.
   c) There is no limit on the number of semesters a single individual may hold
      an official position in CSLUG, provided that the individual is duly
-     re-elected to the position each semester.
+     re-elected to the position each election period.
   d) Any officer may be removed by a 2/3 vote of CSLUG members. The date of a
      vote for removal shall be determined by the Faculty Advisor or by a simple
-     majority of the club Officers.
+     majority of the club officers.
   e) Elected positions in CSLUG are President, Vice President, Webmaster, and
      Treasurer.
 3. Duties and Responsibilities
@@ -78,7 +78,7 @@ Article IV. Membership
      officers, as well as organizing fundraisers for the club. The Treasurer
      shall provide a summary of the club accounts at each regular club meeting
      and upon the request of the President.
-  d) The Webmaster is also responsible for maintaining and updating the
+  d) The Webmaster is responsible for maintaining and updating the
      official CSLUG website with news, minutes, and announcements, including
      any forums, wikis, et cetera. The maintenance and updating of the mailing
      list also falls under the Webmaster's responsibility.
@@ -91,8 +91,8 @@ Article IV. Membership
      CSLUG website.
 
 ARTICLE V. Meetings
-1. Meetings shall be held once a week during Fall and Spring semesters. Meeting
-   times shall occur between 5:30pm - 6:30pm hours and shall last 1 hour unless
+1. Meetings shall be held once a week during fall and spring semesters. Meeting
+   times shall occur between 5:30pm and 6:30pm and shall last 1 hour unless
    otherwise stated in pre-meeting emails or notices. The time, date, and
    frequency of meetings may be altered by a 2/3 majority of regular CSLUG
    members.
@@ -110,7 +110,7 @@ ARTICLE VI. Financial Process
    deadline. The Treasurer shall acknowledge all email votes by responding via
    email.
 
-ARTICLE VII. advisor
+ARTICLE VII. Advisor
 1. A faculty or staff advisor shall be selected or removed by a 2/3 vote of
    club members. Votes for the removal of a faculty member shall be counted by
    the President and Vice President. Removal of a Faculty Advisor must be
@@ -135,4 +135,4 @@ ARTICLE IX. Disbursal of Assets
 1. Dissolving of CSLUG shall occur if there is no elected President for a
    period of four years.
 2. Upon dissolving of CSLUG, all monetary assets of CSLUG shall be donated in
-   even amounts to the CSU, Chico ACM and UPE clubs.
+   even amounts to the CSU Chico ACM and UPE clubs.
