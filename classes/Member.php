@@ -64,7 +64,7 @@ class Member {
 	public function get_link() {
 		return $this->link;
 	}
-
+	
 	public function is_position_valid() {
 		return isset(Member::$pos[$this->position]);
 	}
