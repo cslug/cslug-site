@@ -125,7 +125,7 @@ a.footer {
 	color: #666;
 }
 
-div.member-left, div.member-right {
+div.member {
 	background-color: #fafafa;
 	border:           1px dashed #ccc;
 	display:          inline-block;
