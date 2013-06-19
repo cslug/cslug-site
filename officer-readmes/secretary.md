@@ -31,9 +31,9 @@ your own account.)
 2. Clone your new copy of the repo (replace `<yourusername>` with your GitHub
 username) and enter the directory:
 
-	  git clone git@github.com:`<yourusername>`/cslug-site
+	  `git clone git@github.com:<yourusername>/cslug-site`
 
-	  cd cslug-site
+	  `cd cslug-site`
 
 3. Start writing minutes in a file in the `minutes` folder with a name of the form `YYYYMMDD` (e.g. on April 11, 2012, use a file at `minutes/20120411`). Minutes are parsed using [Markdown][7], which is a nice
 way of formatting plain text to look good whether or not it's parsed. You should definitely gloss over the specs. All files in this GitHub repo with the extension `.md` are written in Markdown, if you need any examples.
