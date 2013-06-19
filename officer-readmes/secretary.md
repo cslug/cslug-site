@@ -29,9 +29,10 @@ hit "Fork" near the top-right. This creates a copy of the repository under
 your own account.)
 
 2. Clone your new copy of the repo (replace `<yourusername>` with your GitHub
-username):
+username) and enter the directory:
 
-	  git clone git@github.com:<yourusername>/cslug-site
+	  git clone git@github.com:`<yourusername>`/cslug-site
+
 	  cd cslug-site
 
 3. Start writing minutes in a file in the `minutes` folder with a name of the form `YYYYMMDD` (e.g. on April 11, 2012, use a file at `minutes/20120411`). Minutes are parsed using [Markdown][7], which is a nice
